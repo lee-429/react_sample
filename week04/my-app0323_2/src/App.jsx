@@ -18,11 +18,55 @@ function GreetingCard( {name, message} ) {
 }
 
 function Button( {text, color}) {
-  return <button style={{ backgroundColor: color, color: "white"}}>{text}</button>
+  return <button style={{ backgroundColor: color, color: "white"}}>
+    {text}
+  </button>
+}
+
+function VideoCard( {title, channel, views}) {
+  return (
+    <div>
+      <h3>{title}</h3>
+      <p>{channel}</p>
+      <p>조회수: {views}</p>
+    </div>
+  );
+}
+
+function VideoList({ videos }) {
+  return (
+    <div>
+      {videos.map((video, index) => (
+        <VideoCard
+          key={index}
+          title={video.title}
+          channel={video.channel}
+          views={video.views}
+        />
+      ))}
+    </div>
+  );
 }
 
 
 function App() {
+  const videos = [
+    {
+      title: "리액트 강의 기초",
+      channel: "코딩채널",
+      views: "10만",
+    },
+    {
+      title: "자바 강의 기초",
+      channel: "코딩채널",
+      views: "30만",
+    },
+    {
+      title: "자바스크립트 강의 기초",
+      channel: "코딩채널",
+      views: "19만",
+    },
+  ];
   return (
     <div>
       <h1>4주차 수업 과제</h1>
@@ -44,6 +88,11 @@ function App() {
       <Button text="버튼1" color="red"/>
       <Button text="버튼2" color="blue"/>
       <Button text="버튼3" color="green"/>
+      <hr />
+
+      <h2>[과제4]</h2>
+      <h3>📺 추천 영상</h3>
+      <VideoList videos={videos} />
       <hr />
     </div>
   );
