@@ -17,6 +17,10 @@ function GreetingCard( {name, message} ) {
   )
 }
 
+function Button( {text, color}) {
+  return <button style={{ backgroundColor: color, color: "white"}}>{text}</button>
+}
+
 
 function App() {
   return (
@@ -34,6 +38,12 @@ function App() {
       <GreetingCard name="길동" message="생축생축" />
       <GreetingCard name="찰스" message="하이" />
       <GreetingCard name="둘리" message="호잇" />
+      <hr />
+
+      <h2>[과제3]</h2>
+      <Button text="버튼1" color="red"/>
+      <Button text="버튼2" color="blue"/>
+      <Button text="버튼3" color="green"/>
       <hr />
     </div>
   );
