@@ -25,7 +25,27 @@ function ProfileCard( {name, age, job} ) {
   )
 }
 
+function Button( {text} ) {
+  return <button>{text}</button>
+}
+
+function Box( {children} ) {
+  return <div>{children}</div>;
+}
+
+function FruitList({ fruits }) {
+  return (
+    <ul>
+      {fruits.map((fruit, index) => (
+        <li key={index}>{fruit}</li>
+      ))}
+    </ul>
+  );
+} 
+
+
 function App() {
+  const fruits = ["사과", "바나나", "포도"];
   return (
     <div>
       <h1>4주차 실습</h1>
@@ -49,10 +69,25 @@ function App() {
 
       <h2>[실습4]</h2>
       <ProfileCard name="이현학" age={25} job="학생" />
+      <ProfileCard name="로메로" age={29} job="축구선수" />
       <hr />
 
       <h2>[실습5]</h2>
-      
+      <Button text="로그인" /> <br/>
+      <Button text="회원가입" /> <br/>
+      <Button text="삭제" />
+      <hr />
+
+      <h2>[실습6]</h2>
+      <Box>
+        <h1>안녕하세요</h1>
+        <h2>Hello!!</h2>
+        <h3>집 가고 싶다</h3>
+      </Box>
+      <hr />
+
+      <h2>[실습7]</h2>
+      <FruitList fruits={fruits} />
       <hr />
     </div>
   )
