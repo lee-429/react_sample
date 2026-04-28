@@ -1,0 +1,269 @@
+/* 1. React 기본 설정 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+  font-family: Arial, sans-serif;
+}
+
+/* 1. 전체 앱 영역 */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+/* 2. 제목 */
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* 2. 좌우 화면 분할 */
+.layout {
+  display: flex;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 2. 왼쪽, 오른쪽 공통 박스 */
+.left-panel,
+.right-panel {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 24px;
+
+  /* 15. CSS 마무리 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.left-panel {
+  flex: 1.2;
+}
+
+.right-panel {
+  flex: 0.8;
+}
+
+/* 8. 이전 달 / 다음 달 버튼 영역 */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3. 현재 연도/월 제목 */
+.calendar-header h2 {
+  margin: 0;
+}
+
+/* 8. 달력 이동 버튼 */
+/* 9. 일정 입력 버튼 */
+.calendar-header button,
+.input-row button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.calendar-header button:hover,
+.input-row button:hover {
+  background: #1d4ed8;
+}
+
+/* 4. 달력 표 만들기 */
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* 4. 달력 칸 공통 스타일 */
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #d1d5db;
+  text-align: center;
+}
+
+/* 4. 요일 칸 */
+.calendar-table th {
+  height: 42px;
+  background: #f9fafb;
+}
+
+/* 5. 날짜 칸 */
+/* 12. 일정 점 위치 기준 */
+.calendar-table td {
+  height: 70px;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* 7. 클릭 가능한 날짜 */
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background: #eff6ff;
+}
+
+/* 7. 오늘 날짜 표시 */
+.today span {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 50%;
+  background: #e5e7eb;
+}
+
+/* 7. 선택 날짜 표시 */
+.selected span {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+/* 12. 일정 있는 날짜 아래 점 표시 */
+.event-dot {
+  width: 7px;
+  height: 7px;
+  background: #ef4444;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 9. 일정 입력 영역 */
+.input-box {
+  margin-top: 24px;
+}
+
+/* 9. 입력창과 버튼 가로 배치 */
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* 9. 일정 입력창 */
+.input-row input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+/* 10. 일정 없을 때 문구 */
+.empty {
+  color: #6b7280;
+}
+
+/* 11. 같은 날짜끼리 묶기 */
+.date-group {
+  margin-bottom: 24px;
+}
+
+/* 11. 같은 날짜 제목 표시 */
+.date-title {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e5e7eb;
+  font-size: 18px;
+  color: #2563eb;
+}
+
+/* 10. 오른쪽 일정 목록 */
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 10. 일정 한 줄 */
+/* 13. 체크 버튼과 내용 정렬 */
+/* 14. 삭제 버튼 포함 */
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 0;
+}
+
+/* 10. 일정 내용 */
+.event-content {
+  flex: 1;
+}
+
+.event-content p {
+  margin: 0;
+}
+
+/* 13. 체크 버튼 */
+.check-btn {
+  width: 26px;
+  height: 26px;
+  border: 2px solid #2563eb;
+  background: white;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* 13. 완료된 체크 버튼 */
+.check-btn.checked {
+  background: #2563eb;
+  color: white;
+}
+
+/* 13. 완료된 일정 취소선 */
+.done-text {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #9ca3af;
+  color: #9ca3af;
+  opacity: 0.7;
+}
+
+/* 14. 삭제 버튼 */
+.delete-btn {
+  border: none;
+  background: #dc2626;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* 15. 반응형 화면 구성 */
+@media (max-width: 800px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .app {
+    padding: 16px;
+  }
+}
