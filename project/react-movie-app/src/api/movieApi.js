@@ -1,6 +1,6 @@
 // TMDB에서 발급받은 개인 API 키
 // API 요청 시 인증 용도로 사용
-const API_KEY = '5eae366ce750487ebc55960e091a1ebf';
+const API_KEY = import.meta.env.VITE_MOVIE_API_KEY;
 
 // TMDB API 기본 주소
 const BASE_URL = 'https://api.themoviedb.org/3';
