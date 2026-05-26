@@ -1,0 +1,269 @@
+/* ==========================================
+   1. 전체 레이아웃 및 배경 세팅
+   ========================================== */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #141414;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #e50914;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  cursor: pointer; /* 💡 App.jsx 기능에 맞춰 커서 모양 추가 */
+}
+
+.status-msg, .no-results, .welcome-msg {
+  font-size: 1.2rem;
+  margin-top: 80px;
+  color: #aaa;
+}
+
+/* ==========================================
+   2. 검색창 및 초기화 버튼 영역
+   ========================================== */
+.search-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #333;
+  border-radius: 30px;
+  background-color: #222;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #e50914;
+}
+
+.search-button, .reset-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease, transform 0.1s ease;
+}
+
+.search-button {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+}
+
+.search-button:hover {
+  background-color: #ff1e28;
+}
+
+.reset-button {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  white-space: nowrap;
+}
+
+.reset-button:hover {
+  background-color: #444;
+  border-color: #e50914;
+  color: #ff1e28;
+}
+
+.search-button:active, .reset-button:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================
+   3. 영화 목록 및 카드 레이아웃
+   ========================================== */
+.movie-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.movie-card {
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(229, 9, 20, 0.3);
+}
+
+.movie-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.movie-info h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+.movie-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}
+
+/* ==========================================
+   4. 상세보기 모달 팝업창 (MovieModal)
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 750px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  border: 1px solid #333;
+  display: flex;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.4rem;
+  line-height: 32px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #e50914;
+  transform: rotate(90deg);
+}
+
+.modal-poster {
+  width: 40%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-right: 1px solid #333;
+}
+
+.modal-body {
+  width: 60%;
+  padding: 35px 25px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.modal-body h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: bold;
+  padding-right: 30px;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 15px;
+  color: #e50914;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 12px;
+}
+
+.modal-meta span:nth-child(even) {
+  color: #444;
+}
+
+.modal-overview {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #dddddd;
+  margin: 0;
+  word-break: keep-all;
+}
+
+/* 📱 반응형 모바일 브레이크 포인트 */
+@media (max-width: 650px) {
+  .modal-content {
+    flex-direction: column;
+  }
+  .modal-poster {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+  .modal-body {
+    width: 100%;
+    padding: 25px;
+  }
+}
