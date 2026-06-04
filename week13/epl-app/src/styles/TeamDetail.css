@@ -1,0 +1,154 @@
+/* src/styles/TeamDetail.css */
+
+/* 전체 레이아웃 컨테이너 */
+.detail-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ◀ 돌아가기 버튼 */
+.back-btn {
+  background-color: #38003c; /* EPL 시그니처 보라색 */
+  color: #00ff87;            /* 네온 그린 텍스트 */
+  border: 1px solid rgba(0, 255, 135, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+}
+
+.back-btn:hover {
+  background-color: #00ff87; /* 호버 시 네온 그린으로 반전 */
+  color: #38003c;
+  box-shadow: 0 0 12px rgba(0, 255, 135, 0.4);
+}
+
+/* 대시보드 메인 카드 박스 */
+.detail-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr; /* 왼쪽 프로필 이미지존과 오른쪽 상세 스탯존 비율 */
+  background-color: #161b22;       /* 메인 순위표와 통일된 다크 그레이 */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px;
+  gap: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* [왼쪽 섹션] 대형 엠블럼 상자 */
+.detail-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 30px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.detail-crest {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.detail-left h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+/* 3글자 축약어 뱃지 (예: ARS) */
+.detail-tla {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #8b949e;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* [오른쪽 섹션] 클럽 프로필 상자 */
+.detail-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detail-right h3 {
+  color: #00ff87; /* 포인트 컬러인 네온 그린 적용 */
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.detail-right hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 0 24px 0;
+}
+
+/* 프로필 정보 그리드 (한 줄씩 깔끔하게 정렬) */
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-grid p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #e6edf3;
+  display: flex;
+  align-items: center;
+}
+
+/* 텍스트 타이틀 강조 (🏟️ 홈 구장:, 📅 창립년도:) */
+.info-grid strong {
+  color: #8b949e;
+  font-weight: 600;
+  width: 130px; /* 라벨 너비를 고정하여 데이터 시작점을 수직 정렬 */
+  flex-shrink: 0;
+}
+
+/* 공식 웹사이트 링크 스타일 */
+.info-grid a {
+  color: #58a6ff;
+  text-decoration: none;
+  transition: color 0.2s;
+  word-break: break-all;
+}
+
+.info-grid a:hover {
+  color: #79c0ff;
+  text-decoration: underline;
+}
+
+/* 로딩 및 에러 화면 스타일 (가운데 정렬) */
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.loading {
+  color: #00ff87;
+}
+
+.error {
+  color: #f87171;
+}

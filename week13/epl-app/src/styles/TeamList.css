@@ -1,0 +1,22 @@
+/* src/styles/TeamList.css */
+
+.team-table-container {
+  background-color: #161b22; /* 💡 배경보다 아주 살짝 밝은 다크 톤으로 입체감 주기 */
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 그림자 농도도 더 짙게 */
+  margin-top: 20px;
+}
+
+.team-table-header {
+  color: #8b949e; /* 💡 흐릿했던 헤더 글자색을 좀 더 명확한 회색으로 변경 */
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.team-table-header span:nth-child(2) {
+  text-align: left;
+  padding-left: 55px; 
+}
